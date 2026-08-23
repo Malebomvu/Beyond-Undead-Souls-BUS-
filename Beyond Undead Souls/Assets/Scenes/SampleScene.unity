@@ -8397,7 +8397,8 @@ Transform:
   m_LocalPosition: {x: 0.065589905, y: 0.37, z: 0.06454992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1087095652}
   m_Father: {fileID: 759264115}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
@@ -27704,11 +27705,35 @@ MonoBehaviour:
     m_ActionId: 82f2af07-66ec-432e-bc92-3811ab40e6c5
     m_ActionName: 'Player/Crouch[/Keyboard/c]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 759264118}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b1a829b7-9eda-441b-8afa-5b0eee9bf5c1
     m_ActionName: 'Player/PickUp[/Keyboard/f]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 759264118}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 804e1c41-99f8-45f8-ad30-87b93b47a7bb
     m_ActionName: 'Player/Talk[/Keyboard/e]'
   - m_PersistentCalls:
@@ -27767,7 +27792,9 @@ MonoBehaviour:
   standHeight: 2
   crouchSpeed: 2.5
   pickupRange: 2
-  holdPoint: {fileID: 0}
+  holdPoint: {fileID: 1087095652}
+  throwForce: 20
+  throwUpwardBoost: 1
 --- !u!1 &765981815
 GameObject:
   m_ObjectHideFlags: 0
@@ -38177,6 +38204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216f94a9fc1dfb14395507ecea33c156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpObject
+  Damage: 10
 --- !u!54 &988931077
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40843,6 +40871,37 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1087095651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1087095652}
+  m_Layer: 0
+  m_Name: HeldObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1087095652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087095651}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7974474, z: -0, w: 0.6033885}
+  m_LocalPosition: {x: -0.225, y: -0.14, z: 0.628}
+  m_LocalScale: {x: 0.6160872, y: 0.41190282, z: 0.51945966}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 330585546}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1109633067
 Mesh:
   m_ObjectHideFlags: 0
@@ -57368,6 +57427,7 @@ GameObject:
   - component: {fileID: 1493120235}
   - component: {fileID: 1493120234}
   - component: {fileID: 1493120233}
+  - component: {fileID: 1493120237}
   m_Layer: 0
   m_Name: 'Enemy '
   m_TagString: Untagged
@@ -57470,6 +57530,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1493120237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493120232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0d27de6ba09d5478cb8307138c2292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  Health: 500
+  Damage: 10
+  attack: 50
 --- !u!43 &1502136707
 Mesh:
   m_ObjectHideFlags: 0

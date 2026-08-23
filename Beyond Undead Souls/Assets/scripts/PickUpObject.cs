@@ -1,12 +1,16 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
-{
+{ 
     private Rigidbody rb;
+    public float Damage = 10f;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
+
 
     public void PickUp(Transform holdPoint)
     {
@@ -27,15 +31,24 @@ public class PickUpObject : MonoBehaviour
     {
         rb.MovePosition(targetPosition);
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public void Throw(Vector3 impulse)
     {
-        
+        transform.SetParent (null);
+        rb.useGravity = true;
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.AddForce(impulse, ForceMode.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnCollisionEnter(Collision collision)
     {
-        
+        Enemy enemyObject = collision.gameObject.GetComponent<Enemy>();
+        if (enemyObject != null)
+        {
+            enemyObject.TakeDamage (10);
+        }
+            
     }
+
 }

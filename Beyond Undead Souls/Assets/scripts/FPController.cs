@@ -10,7 +10,7 @@ public class FPController : MonoBehaviour
 
     [Header("Look Settings")]
     public Transform cameraTransform;
-    public float lookSensitivity = 1.5f;
+    public float lookSensitivity = 1f;
     public float verticalLookLimit = 90f;
 
     [Header("Crouch Settings")]
@@ -23,6 +23,10 @@ public class FPController : MonoBehaviour
     public float pickupRange = 2f;
     public Transform holdPoint;
     private PickUpObject heldObject;
+
+    [Header("Throw Settings")]
+    public float throwForce = 20f;
+    public float throwUpwardBoost = 1f;
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -146,7 +150,19 @@ public class FPController : MonoBehaviour
             heldObject = null;
         }
     }
-   
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        if(!context.performed) return;
+        if (heldObject == null) return;
+
+        Vector3 dir = cameraTransform.forward;
+        Vector3 impulse = dir * throwForce + Vector3.up * throwUpwardBoost;
+
+        heldObject.Throw(impulse);
+        heldObject = null ;
+    }
+
+    
 
 
 }

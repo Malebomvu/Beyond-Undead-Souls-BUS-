@@ -20,13 +20,16 @@ public class FPController : MonoBehaviour
     private float originalMoveSpeed;
 
     [Header("PickUp Settings")]
-    public float pickupRange = 2f;
+    public float pickupRange = 5f;
     public Transform holdPoint;
     private PickUpObject heldObject;
 
     [Header("Throw Settings")]
     public float throwForce = 20f;
     public float throwUpwardBoost = 1f;
+
+    [Header("PlayerHealth Settings")]
+    public int PlayerHealth = 300;
 
     private CharacterController controller;
     private Vector2 moveInput;

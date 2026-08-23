@@ -1,0 +1,4 @@
+repository "Beyond Undead Souls/Beyond Undead Souls@20067455701342@cloud"
+  path "/"
+    br "/main"
+    co "/main"

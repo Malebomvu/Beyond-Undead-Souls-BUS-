@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pick up",
+                    "name": "PickUp",
                     "type": "Button",
                     "id": "b1a829b7-9eda-441b-8afa-5b0eee9bf5c1",
                     "expectedControlType": "",
@@ -55,6 +55,15 @@
                     "name": "Talk",
                     "type": "Button",
                     "id": "804e1c41-99f8-45f8-ad30-87b93b47a7bb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "c2b9aa66-51c8-4ff0-8fb7-44b2b3b0712a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -351,29 +360,29 @@
                 {
                     "name": "",
                     "id": "22d58229-ca3c-4473-aa2c-bed7493e515c",
-                    "path": "",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pick up",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "d8c74e55-c094-4dea-80d5-0d48712bfea7",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pick up",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "4beeeba4-398f-4977-ab81-0f7d2d770e2b",
-                    "path": "",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -389,6 +398,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Talk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79f28a3f-d37a-46a6-acac-d136b4b10794",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "023015a4-06c4-4b6e-aec9-c563afb04045",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -4,20 +4,21 @@ using UnityEngine.AI;
 public class EnemyAI : Enemy
 {
     public NavMeshAgent agent;
-    public float lookRadius = 10f;
-    public Transform target;
+    public float lookRadius = 15f;
+    public Transform Player;
 
     private void Start()
-    {
+    { 
         agent = GetComponent<NavMeshAgent>();
-        target = transform;
+       
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distance = Vector3.Distance(Player.position, transform.position);
         if (distance <= lookRadius)
         { 
-            agent.transform.position = target.position;
+            agent.SetDestination(Player.position);
         }
     }
 
